@@ -1,6 +1,6 @@
 package com.tiktac.toe.web;
 
-import com.tiktac.toe.domain.Player;
+import com.tiktac.toe.domain.player.Player;
 import com.tiktac.toe.dto.JoinGameRequest;
 import com.tiktac.toe.dto.MakeMoveRequest;
 import com.tiktac.toe.service.GameService;

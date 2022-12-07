@@ -1,6 +1,6 @@
 package com.tiktac.toe.service;
 
-import com.tiktac.toe.domain.Player;
+import com.tiktac.toe.domain.player.Player;
 import com.tiktac.toe.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -2,7 +2,7 @@ package com.tiktac.toe.service;
 
 import com.tiktac.toe.domain.Board;
 import com.tiktac.toe.domain.Game;
-import com.tiktac.toe.domain.Player;
+import com.tiktac.toe.domain.player.Player;
 import com.tiktac.toe.dto.MakeMoveRequest;
 import com.tiktac.toe.factory.GameFactory;
 import com.tiktac.toe.handler.BoardHandler;

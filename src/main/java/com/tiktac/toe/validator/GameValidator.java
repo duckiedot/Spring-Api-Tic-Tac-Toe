@@ -1,7 +1,7 @@
 package com.tiktac.toe.validator;
 
 import com.tiktac.toe.domain.Game;
-import com.tiktac.toe.domain.Player;
+import com.tiktac.toe.domain.player.Player;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 

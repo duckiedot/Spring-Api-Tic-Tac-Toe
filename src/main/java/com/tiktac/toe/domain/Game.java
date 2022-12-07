@@ -1,5 +1,6 @@
 package com.tiktac.toe.domain;
 
+import com.tiktac.toe.domain.player.Player;
 import lombok.Getter;
 import lombok.Setter;
 

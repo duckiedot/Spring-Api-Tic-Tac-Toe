@@ -1,6 +1,6 @@
 package com.tiktac.toe.web;
 
-import com.tiktac.toe.domain.Player;
+import com.tiktac.toe.domain.player.Player;
 import com.tiktac.toe.dto.player.LoginPlayerRequest;
 import com.tiktac.toe.dto.player.RegisterPlayerRequest;
 import com.tiktac.toe.service.PlayerService;

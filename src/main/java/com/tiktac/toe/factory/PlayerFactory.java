@@ -1,6 +1,6 @@
 package com.tiktac.toe.factory;
 
-import com.tiktac.toe.domain.Player;
+import com.tiktac.toe.domain.player.Player;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;
 
