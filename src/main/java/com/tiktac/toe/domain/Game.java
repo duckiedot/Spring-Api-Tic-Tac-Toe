@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,13 +20,18 @@ public class Game {
     @Column(nullable = false)
     private boolean isFinished = false;
 
-    @OneToMany
-    private List<Player> players;
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "game_players",
+            joinColumns = { @JoinColumn(name = "player_id") },
+            inverseJoinColumns = { @JoinColumn(name = "game_id")}
+    )
+    private List<Player> players = new ArrayList<>();
 
     @OneToOne
     private Player startingPlayer;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Board board;
 
     @Column(nullable = false)

@@ -1,6 +1,7 @@
 package com.tiktac.toe.domain.player;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.tiktac.toe.domain.Game;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -41,6 +42,9 @@ public class Player implements UserDetails {
             inverseJoinColumns = { @JoinColumn(name = "authority_id") }
     )
     private Set<Authority> authRoles = new HashSet<>();
+
+    @ManyToMany(mappedBy = "players", fetch = FetchType.EAGER)
+    private Set<Game> games = new HashSet<>();
 
     public Player() {
         this.authRoles.add(new RegisteredRole());

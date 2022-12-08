@@ -47,6 +47,8 @@ public class GameService {
 
         newGame.addPlayer(player);
         newGame.setCurrentPlayerTurnId(player.getPlayerId());
+        newGame.setStartingPlayer(player);
+        newGame.setBoard(new Board());
         this.gameRepository.save(newGame);
 
         return newGame.getGameId();
@@ -93,6 +95,6 @@ public class GameService {
         foundGame.setBoard(updatedBoard);
         this.gameRepository.save(foundGame);
 
-        return "XD";
+        return "Move made";
     }
 }
