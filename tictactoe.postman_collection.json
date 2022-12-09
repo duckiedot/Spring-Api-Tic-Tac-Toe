@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "6242cb67-023e-4cc5-b99f-5b65111632b9",
+		"name": "Tic Tac Toe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23943876"
+	},
+	"item": [
+		{
+			"name": "Register Player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Player1\",\r\n    \"password\": \"test123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostname}}/api/auth/register",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Player1\",\r\n    \"password\": \"test123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostname}}/api/auth/login",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Game",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJQbGF5ZXIxIiwiZXhwIjoxNzAxNTI4MjIxLCJpYXQiOjE2NzA0MjQyMjEsImF1dGhvcml0aWVzIjpbIlJPTEVfUkVHSVNURVJFRCJdfQ.06xtkTR0gmfoPK3h4JFoM9wDQ7g9NSmEhFG7FltNvzNY5BFV9FRsEiK8hbFzBseZh77x7oGWvX4veflhNsPJGw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{hostname}}/api/game/create",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join Game By ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJQbGF5ZXIyIiwiZXhwIjoxNzAxNTI4MzM3LCJpYXQiOjE2NzA0MjQzMzcsImF1dGhvcml0aWVzIjpbIlJPTEVfUkVHSVNURVJFRCJdfQ.QnaYBx_pHYzgIlHc6qW18zRRyoq_kgme3WXS0fxuII2SghoVRZqdKmb9Vhmi8xAtQHWUoWVdujMxzdKKEoiw2A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"gameId\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostname}}/api/game/join",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Move",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJQbGF5ZXIyIiwiZXhwIjoxNzAxNTI4MzM3LCJpYXQiOjE2NzA0MjQzMzcsImF1dGhvcml0aWVzIjpbIlJPTEVfUkVHSVNURVJFRCJdfQ.QnaYBx_pHYzgIlHc6qW18zRRyoq_kgme3WXS0fxuII2SghoVRZqdKmb9Vhmi8xAtQHWUoWVdujMxzdKKEoiw2A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"gameId\": 7,\r\n    \"rowId\": 2,\r\n    \"columnId\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostname}}/api/game/join",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display board",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJQbGF5ZXIyIiwiZXhwIjoxNzAxNTI4MzM3LCJpYXQiOjE2NzA0MjQzMzcsImF1dGhvcml0aWVzIjpbIlJPTEVfUkVHSVNURVJFRCJdfQ.QnaYBx_pHYzgIlHc6qW18zRRyoq_kgme3WXS0fxuII2SghoVRZqdKmb9Vhmi8xAtQHWUoWVdujMxzdKKEoiw2A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"gameId\": 7,\r\n    \"rowId\": 2,\r\n    \"columnId\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostname}}/api/game/show-board/7",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"show-board",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hostname",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
