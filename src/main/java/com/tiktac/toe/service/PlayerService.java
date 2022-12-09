@@ -5,6 +5,7 @@ import com.tiktac.toe.dto.player.RegisterPlayerRequest;
 import com.tiktac.toe.factory.PlayerFactory;
 import com.tiktac.toe.repository.PlayerRepository;
 import com.tiktac.toe.util.CustomPasswordEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +16,9 @@ public class PlayerService {
 
     private final PlayerRepository playerRepository;
     private final PlayerFactory playerFactory;
-
     private final PasswordEncoder passwordEncoder;
 
+    @Autowired
     public PlayerService(
             PlayerRepository playerRepository,
             PlayerFactory playerFactory,

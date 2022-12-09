@@ -9,10 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/game")
@@ -29,9 +26,9 @@ public class GameController {
     public ResponseEntity<?> createGame (@AuthenticationPrincipal Player player) throws Exception {
         long gameId = this.gameService.createGame(player);
         if (gameId > 0) {
-            return ResponseEntity.ok("XD");
+            return ResponseEntity.ok("Created game with id: " + gameId);
         }
-        return ResponseEntity.badRequest().body("NOT XD");
+        return ResponseEntity.badRequest().body("did not create game");
     }
 
     @PostMapping("join")
@@ -42,7 +39,8 @@ public class GameController {
                 (Player) authentication.getPrincipal()
                 );
 
-        return gameJoined ? ResponseEntity.ok("Joined the game") : ResponseEntity.badRequest().body("didnt join");
+        return gameJoined ?
+                ResponseEntity.ok("Joined the game") : ResponseEntity.badRequest().body("didnt join");
     }
 
     @PostMapping("move")
@@ -51,5 +49,12 @@ public class GameController {
         String moveMade = this.gameService.makeMove(moveRequest, (Player) authentication.getPrincipal());
 
         return ResponseEntity.ok().body(moveMade);
+    }
+
+    @GetMapping("show-board/{gameId}")
+    public ResponseEntity<?> showGame (@PathVariable("gameId") long gameId) {
+        String gameBoard = this.gameService.showBoardById(gameId);
+
+        return ResponseEntity.ok().body(gameBoard);
     }
 }

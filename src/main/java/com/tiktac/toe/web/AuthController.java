@@ -5,6 +5,7 @@ import com.tiktac.toe.dto.player.LoginPlayerRequest;
 import com.tiktac.toe.dto.player.RegisterPlayerRequest;
 import com.tiktac.toe.service.PlayerService;
 import com.tiktac.toe.util.JwtUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,7 @@ public class AuthController {
     private final JwtUtil jwtUtil;
     private final PlayerService playerService;
 
+    @Autowired
     public AuthController(
             AuthenticationManager authenticationManager,
             JwtUtil jwtUtil,

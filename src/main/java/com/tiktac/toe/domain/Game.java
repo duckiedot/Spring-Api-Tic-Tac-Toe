@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Getter
@@ -23,8 +24,8 @@ public class Game {
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(
             name = "game_players",
-            joinColumns = { @JoinColumn(name = "player_id") },
-            inverseJoinColumns = { @JoinColumn(name = "game_id")}
+            joinColumns = { @JoinColumn(name = "game_id") },
+            inverseJoinColumns = { @JoinColumn(name = "player_id")}
     )
     private List<Player> players = new ArrayList<>();
 
@@ -38,7 +39,12 @@ public class Game {
     private Long currentPlayerTurnId;
 
     public boolean isValidPlayer(Player player) {
-        return this.players.contains(player);
+        for (Player gamePlayer : this.players) {
+            if (Objects.equals(gamePlayer.getPlayerId(), player.getPlayerId())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void addPlayer(Player player) {

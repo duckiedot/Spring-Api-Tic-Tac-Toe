@@ -13,11 +13,8 @@ import java.util.Optional;
 @Component
 public class GameValidator {
 
-    public GameValidator() {
-        this.errors = new ArrayList<>();
-    }
     @Getter
-    private final List<String> errors;
+    private final List<String> errors = new ArrayList<>();
 
     //Return true only if all validators are passed
     public boolean isValid(Optional<Game> game, Player player) {

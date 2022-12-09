@@ -44,6 +44,7 @@ public class Player implements UserDetails {
     private Set<Authority> authRoles = new HashSet<>();
 
     @ManyToMany(mappedBy = "players", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Game> games = new HashSet<>();
 
     public Player() {

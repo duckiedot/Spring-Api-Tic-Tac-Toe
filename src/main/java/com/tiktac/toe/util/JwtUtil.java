@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -62,7 +63,7 @@ public class JwtUtil implements Serializable {
         Map<String, Object> claims = new HashMap<>();
         claims.put("authorities", userDetails.getAuthorities()
                 .stream()
-                .map(auth -> auth.getAuthority())
+                .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList()));
         return doGenerateToken(claims, userDetails.getUsername());
     }
